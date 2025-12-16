@@ -120,6 +120,8 @@ body{
 .NewTaskForm{
     display: flex;
     flex-direction: column;
+    align-items: left;
+    /* justify-content: space-around; */
     
 }
 .new-task-header{
@@ -127,4 +129,57 @@ body{
     align-items: center;
     justify-content: space-between;
     width: 100%;
+}
+.save-new-task{
+    border: none;
+    color: white;
+    background-color: #0081FB;
+    padding: 5px 20px 5px 20px;
+    font-size: medium;
+    border-radius: 38px;
+}
+
+.newTaskName{
+    width: 99%;
+    padding:10px 5px 10px 5px;
+    border-radius: 38px;
+    border: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    
+    backdrop-filter: blur(2px);
+}
+
+.meeting-time{
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 38px;
+    border: none;
+    background-color: #0082fb00;
+    backdrop-filter: blur(2px);
+    color: white;
+}
+.date{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#comment{
+    width: 85%;
+    background-color: #0082fb00;
+    border-radius: 38px;
+    padding: 20px 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    backdrop-filter: blur(2px);
+    color: white;
+    font-size: 20px;
+    height: 300px;
+
 }

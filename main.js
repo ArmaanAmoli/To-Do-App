@@ -56,8 +56,8 @@ function createNewTask(){
             <input type="date" id="Deadline" class="meeting-time">
         </div>
         </div>
-        <h2>Task Description</h2>
-        <textarea id="comment" name="comment" rows="4" cols="50" placeholder="Type here..."></textarea>
+        <h2>Description</h2>
+        <textarea id="comment" name="comment" rows="15" cols="60" placeholder="Type here..."></textarea>
   
     `
     document.body.appendChild(newTaskForm)
