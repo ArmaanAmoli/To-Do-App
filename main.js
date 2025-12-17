@@ -99,9 +99,6 @@ function saveNewTask(){
     newTaskForm.remove();
 }
 
-
-
-
 //Creating a function to detect change in a checkbox
 function handleCheckboxChange(event){
     const ClickedCheckBox = event.target
