@@ -2,27 +2,35 @@ function render(){
     const listOfTask = document.querySelector(".list")
     listOfTask.innerHTML=``
     //This function will render evety task stored in the local storage
-    LT = localStorage.getItem("tasks")
+    let LT = localStorage.getItem("tasks")
     LT = JSON.parse(LT)
     if(LT==null){
         return
     }
+    let HTMLcontent = ""
     for(let i = 0 ; i<LT.length ; i++){
-        listOfTask.innerHTML+=`
+        HTMLcontent+=`
         <div class="task">
-                    <input type="checkbox" id="completed" name="Checkbox" value="No">
+                    <input type="checkbox" id="${i}" name="Checkbox" ${LT[i][4]?'checked':''}>
                     <h3>${LT[i][0]}</h3>
                     <p>${LT[i][1]} - ${LT[i][2]}</p>
-        </div>
-    `
+        </div>`
     }
+    listOfTask.innerHTML = HTMLcontent
+
+    //After rendering we will we attaching event listeners
+    const Checkboxes = document.querySelectorAll('input[type="checkbox"]')
+    Checkboxes.forEach(cb=>
+        cb.addEventListener('change',handleCheckboxChange)
+    )
 }
 
 let addNewTaskButton;
 
-render()
+
 //we use DOMContentLoaded because we are waiting for the html content to entirely load so that Javascript can safely access the element
 document.addEventListener("DOMContentLoaded", () => {
+    render()
     addNewTaskButton = document.querySelector(".Ad_button");
     addNewTaskButton.addEventListener('click', createNewTask);
 });
@@ -73,15 +81,16 @@ function saveNewTask(){
     const StartDate = document.querySelector("#StartDate").value
     const Deadline = document.querySelector("#Deadline").value
     const TaskDescription = document.querySelector("#comment").value
+    const IsDone = false // Initiating the task as not done
 
-    taskWidget = [newTaskName , StartDate , Deadline , TaskDescription]
+    taskWidget = [newTaskName , StartDate , Deadline , TaskDescription , IsDone]
     if(taskWidget[0]!=="" && taskWidget[1]!==""){
         Local = localStorage.getItem("tasks")
         if(Local == null){
             localStorage.setItem("tasks",JSON.stringify([taskWidget]))
         }
         else{
-            LocalArray = JSON.parse(Local)
+            let LocalArray = JSON.parse(Local)
             LocalArray.push(taskWidget)
             localStorage.setItem("tasks", JSON.stringify(LocalArray))
         }
@@ -89,6 +98,21 @@ function saveNewTask(){
     }
     newTaskForm.remove();
 }
+
+
+
+
+//Creating a function to detect change in a checkbox
+function handleCheckboxChange(event){
+    const ClickedCheckBox = event.target
+    let idOfCB = ClickedCheckBox.id
+    //Through the ID we will update the local storage as the ID is same as the index of the particular Task in local storage
+    let taskArray = JSON.parse(localStorage.getItem("tasks"))
+    taskArray[Number(idOfCB)][4] = !taskArray[Number(idOfCB)][4]  // If checked returns true
+    console.log(taskArray[Number(idOfCB)][4] + " " + Number(idOfCB))
+    localStorage.setItem("tasks" , JSON.stringify(taskArray))
+}
+
 
 
 
