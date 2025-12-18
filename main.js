@@ -10,7 +10,7 @@ function render() {
     let HTMLcontent = ""
     for (let i = 0; i < LT.length; i++) {
         HTMLcontent += `
-        <div class="task">
+        <div class="task" id="TaskElement-${LT[i][5]}">
                     <input type="checkbox" id="${LT[i][5]}" name="Checkbox" ${LT[i][4] ? 'checked' : ''}>
                     <div class = "Task-content">
                         <h3>${LT[i][0]}</h3>
@@ -26,6 +26,12 @@ function render() {
     Checkboxes.forEach(cb =>
         cb.addEventListener('change', handleCheckboxChange)
     )
+
+    //Adding Event Listner to all the Delete Buttons
+    for(let i=0 ; i< LT.length ; i++){
+        let deleteButton = document.getElementById(`DELETE-${LT[i][5]}`)
+        deleteButton.addEventListener('click',function(){DeleteTask(Number(LT[i][5]))})
+    }
 }
 
 let addNewTaskButton;
@@ -124,4 +130,16 @@ function handleCheckboxChange(event) {
         }
     }
     localStorage.setItem("tasks", JSON.stringify(taskArray))
+}
+
+function DeleteTask(ID){ //Takes in the id of Task-HTML and removes it from the local storage
+    let taskArray = JSON.parse(localStorage.getItem("tasks"))
+    for (let i = 0; i < taskArray.length; i++) {
+        if (taskArray[i][5] == ID) {
+            taskArray.splice(i,1)
+            break
+        }
+    }
+    localStorage.setItem("tasks", JSON.stringify(taskArray))
+    render()
 }
