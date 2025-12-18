@@ -56,10 +56,9 @@ body{
     align-items: center;
     height: 75px;
     width: 99%;
-    /* border:solid rgba(128, 128, 128, 0.348); */
+    border:solid rgba(128, 128, 128, 0.334);
     border: none;
     border-width: 1px;
-    /* box-shadow: 0 0 5px gray; */
     margin-bottom: 10px;
     border-radius: 20px;
     background-color: none;
