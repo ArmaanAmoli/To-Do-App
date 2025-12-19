@@ -31,6 +31,7 @@ body{
     background-color: rgba(76, 74, 74, 0.219);
     backdrop-filter: blur(10px);
     box-shadow: 0 0 10px grey;
+    overflow: auto;
 }
 .Ad_button{
     display: flex;
