@@ -3,7 +3,6 @@ body{
     align-items: center;
     justify-content: space-around;
     background-image: url('images.jpg');
-    
     background-repeat: no-repeat;
     height: 97vh;
     font-family: Arial, Helvetica, sans-serif;
@@ -12,7 +11,6 @@ body{
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
-
 }
 .app{
     margin: 10px;
@@ -30,7 +28,7 @@ body{
     padding-right: 10px;
     padding-top: 2px;
     padding-bottom: 2px;
-    background-color: rgba(128, 128, 128, 0.203);
+    background-color: rgba(76, 74, 74, 0.219);
     backdrop-filter: blur(10px);
     box-shadow: 0 0 10px grey;
 }
@@ -71,11 +69,6 @@ body{
     width: 100%;
 }
 
-
-/* .top-content h1 {
-    margin-right: auto;
-} */
-
 .list{
     display: flex;
     flex-direction: column;
@@ -100,8 +93,7 @@ body{
     padding-right: 10px;
     padding-top: 2px;
     padding-bottom: 2px;
-    background-color: rgba(128, 128, 128, 0.181);
-    
+    background-color: rgba(76, 74, 74, 0.219);
     border-color: grey;
     box-shadow: 0 0 10px grey;
     backdrop-filter: blur(10px);
@@ -117,9 +109,7 @@ body{
 .NewTaskForm{
     display: flex;
     flex-direction: column;
-    align-items: left;
-    /* justify-content: space-around; */
-    
+    align-items: left; 
 }
 .new-task-header{
     display: flex;
@@ -143,7 +133,6 @@ body{
     border: none;
     color: white;
     background-color: rgba(0, 0, 0, 0);
-    
     backdrop-filter: blur(2px);
 }
 
@@ -185,4 +174,29 @@ select:focus,
 textarea:focus,
 button:focus {
     outline: none;
+}
+.utility-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.Close{
+    background-color: #FD5E53;
+    color: white;
+    border-radius: 50%;
+    height:30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.delete-task-button{
+    background-color: #f8a59f;
+    border: none;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
 }

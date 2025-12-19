@@ -59,8 +59,8 @@ function createNewTask() {
         <div class = "new-task-header">
             <h1>Add a new New Task</h1>
             <div class = "utility-buttons">
-                <button class="Close">x</button>
                 <button class="save-new-task">save</button>
+                <button class="Close">X</button>
             </div>
             
         </div>
